@@ -54,8 +54,6 @@ def vector_2_degrees(x, y):
 
 # Given an accelerometer sensor object return the inclination angles of X/Z and Y/Z
 # Returns: tuple containing the two angles in degrees
-
-
 def get_inclination(_sensor):
     x, y, z = _sensor.acceleration
     return vector_2_degrees(x, z), vector_2_degrees(y, z)
@@ -70,8 +68,9 @@ while True:
     #sleep(0.2)
     if not spaceButton.value: 
         keyboard.press(Keycode.SPACE)
-        debounce()                 
-    if mode == 1:             
+        debounce()  
+    #Gyroscope control mode
+    if mode == 1:              
         if not spaceButton.value: 
             keyboard.press(Keycode.SPACE)
             debounce()  
@@ -90,6 +89,7 @@ while True:
             print("mode switched to: " + str(mode))
             debounce()
             sleep(0.5)
+    #Manual control mode
     elif mode == 2:
         if not spaceButton.value:                                
             keyboard.press(Keycode.SPACE)
